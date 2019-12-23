@@ -81,11 +81,11 @@
                 <div class="title m-b-md">
                     Ecommerce
                     <hr>
-                    Home
+                    Contact
                 </div>
 
                 <div class="links">
-                    <a href="{{('/contact')}}">Click Here</a>
+                    <a href="">Click Here</a>
                 </div>
             </div>
         </div>
