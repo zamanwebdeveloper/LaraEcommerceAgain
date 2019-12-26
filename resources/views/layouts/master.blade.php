@@ -2,18 +2,18 @@
 <html>
 <head>
 	<title>Laravel Ecommerce Project</title>
-	@include('layouts.partials.styles')
+	@include('partials.styles')
 </head>
 <body>
 	<div class="wrapper">
 		<!-- Start Navigation Part -->
-		@include('layouts.partials.nav')
+		@include('partials.nav')
 		<!-- End Navbar Part -->
 		@yield('content')
 
-		@include('layouts.partials.footer')
+		@include('partials.footer')
 	</div>
 
-	@include('layouts.partials.scripts')
+	@include('partials.scripts')
 </body>
 </html>
