@@ -199,6 +199,7 @@
         </ul>
       </nav>
       <!-- partial -->
+      
       @yield('content')
       <!-- main-panel ends -->
     </div>
