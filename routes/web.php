@@ -11,14 +11,32 @@
 |
 */
 
-Route::get('/', 'PagesController@index')->name('index');
-Route::get('/contact', 'PagesController@contact')->name('contact');
-Route::get('/products', 'PagesController@products')->name('products');
+Route::get('/', 'Frontend\PagesController@index')->name('index');
+Route::get('/contact', 'Frontend\PagesController@contact')->name('contact');
+/* 
+	Product Routes
+	All the routes for our product for frontend
+*/
+Route::get('/products', 'Frontend\ProductsController@index')->name('products');
+Route::get('/product{slug}', 'Frontend\ProductsController@show')->name('products.show');
 
+// Admin Routes
 Route::group(['prefix'=>'admin'], function(){
-	Route::get('/', 'AdminPagesController@index')->name('admin.index');
-	Route::get('/product/create', 'AdminPagesController@product_create')->name('admin.product.create');
-	Route::post('/product/create', 'AdminPagesController@product_store')->name('admin.product.store');
+	Route::get('/', 'Backend\PagesController@index')->name('admin.index');
+
+	// product Routes
+	Route::group(['prefix'=>'/products'], function(){
+		Route::get('/', 'Backend\ProductsController@index')->name('admin.products');
+		Route::get('/create', 'Backend\ProductsController@create')->name('admin.product.create');
+		Route::get('/edit/{id}', 'Backend\ProductsController@edit')->name('admin.product.edit');
+
+		Route::post('/store', 'Backend\ProductsController@store')->name('admin.product.store');
+		Route::post('/product/edit/{id}', 'Backend\ProductsController@update')->name('admin.product.update');
+		Route::post('/product/delete/{id}', 'Backend\ProductsController@delete')->name('admin.product.delete');
+
+		});
+
+
 });
 
 
