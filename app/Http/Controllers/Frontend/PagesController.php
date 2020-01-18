@@ -12,7 +12,8 @@ class PagesController extends Controller
     
     public function index()
     {
-    	return view('frontend.pages.index');
+    	$products = Product::orderBy('id', 'desc')->paginate(2);
+    	return view('frontend.pages.index', compact('products'));
     }
     public function contact()
     {
